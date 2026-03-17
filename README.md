@@ -230,3 +230,16 @@ Create a `FileManager` context manager that:
 - Implements binary file operations (pickle, JSON, CSV)
 
 ================================================================================
+
+Exercise 16: Exception Handling - Retry Logic
+Topics Covered: Exception Handling, Decorators
+
+Create a robust retry mechanism:
+1. Custom exceptions: `RetryableError`, `FatalError`
+2. Decorator `@retry_on_exception(max_attempts, backoff_strategy)`
+3. Backoff strategies: linear, exponential, random jitter
+4. Log all attempts with timestamps
+5. Re-raise last exception if all attempts fail
+
+================================================================================
+
