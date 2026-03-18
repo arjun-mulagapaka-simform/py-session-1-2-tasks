@@ -1,13 +1,5 @@
 '''
     Exercise 15: Advanced File Operations
-    Topics Covered: File Reading & Writing, Exception Handling, Context Managers
-
-    Create a `FileManager` context manager that:
-    - Opens multiple files (read/write) at once
-    - Handles errors gracefully (file not found, permission errors)
-    - Automatically closes all files on exit
-    - Provides methods: `read_line()`, `write_line()`, `copy_content(src, dest)`
-    - Implements binary file operations (pickle, JSON, CSV)
 '''
 import shutil #for copying files
 import pickle, json, csv
