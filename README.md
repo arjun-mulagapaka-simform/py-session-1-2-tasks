@@ -63,12 +63,12 @@ Bonus: Convert this to a generator expression and explain the memory difference.
 ================================================================================
 
 Exercise 4: Function Argument Mastery
-Topics Covered: Functions, *args, **kwargs
+Topics Covered: Functions, *args, kwargs
 
-Write a decorator-like function `merge_calls(*funcs, **defaults)` that:
+Write a decorator-like function `merge_calls(*funcs, defaults)` that:
 - Accepts multiple functions and default keyword arguments
 - Returns a new function that calls all funcs in sequence
-- Passes results from one function to the next using *args/**kwargs
+- Passes results from one function to the next using *args/kwargs
 - Overrides with any defaults provided
 
 Example:
@@ -141,7 +141,7 @@ Implement these decorators:
 1. `@timer` - measures execution time
 2. `@retry(attempts=3, delay=1)` - retries on exception
 3. `@cache` - memoizes results (simple LRU)
-4. `@validate_types(**type_hints)` - validates argument types
+4. `@validate_types(type_hints)` - validates argument types
 
 Apply all four to a function that fetches data from a slow API (simulate with sleep).
 
@@ -243,3 +243,125 @@ Create a robust retry mechanism:
 
 ================================================================================
 
+Exercise 17: Async/Await - Web Scraper
+Topics Covered: Sync & Async, Requests Module
+
+Build an async web scraper:
+1. Fetch 20 URLs concurrently using `aiohttp`
+2. Parse HTML with `BeautifulSoup` (you can refer BeautifulSoup official documentation for basic idea)
+3. Extract titles and meta descriptions
+4. Save results to CSV
+5. Compare performance with synchronous version
+6. Handle timeouts and connection errors
+
+================================================================================
+
+Exercise 18: Multiprocessing vs Threading
+Topics Covered: Multiprocessing & Threading
+
+Create benchmarks for:
+1. CPU-bound task: Calculate prime numbers up to 1 million
+   - Single-threaded
+   - Multi-threaded (ThreadPoolExecutor)
+   - Multi-process (ProcessPoolExecutor)
+
+2. I/O-bound task: Download 50 images
+   - Single-threaded
+   - Multi-threaded
+   - Async with asyncio
+
+Plot results and explain when to use each approach.
+
+================================================================================
+
+Exercise 19: Unit Testing - TDD Approach
+Topics Covered: Unit Testing, Exception Handling
+
+Write a `Calculator` class using TDD:
+1. Write tests first for: add, subtract, multiply, divide, power, sqrt
+2. Test edge cases: division by zero, negative sqrt, large numbers
+3. Use `@pytest.mark.parametrize` for multiple test cases
+4. Mock external dependencies (e.g., logging)
+5. Achieve 100% code coverage
+6. Use fixtures for setup/teardown
+
+================================================================================
+
+Exercise 20: API Testing with Requests
+Topics Covered: Requests Module, Exception Handling, Unit Testing
+
+Create a wrapper for JSONPlaceholder API:
+1. Methods: `get_users()`, `get_posts(user_id)`, `create_post(data)`
+2. Handle rate limiting with exponential backoff
+3. Implement caching with TTL
+4. Write unit tests using `responses` library to mock API
+5. Add retry logic for failed requests
+6. Parse and validate JSON responses
+
+================================================================================
+
+Exercise 21: Pandas - Data Analysis Pipeline
+Topics Covered: Pandas Basics, File Reading & Writing
+
+Given a CSV with sales data:
+1. Load and clean data (handle missing values, duplicates)
+2. Add calculated columns (profit margin, tax)
+3. Group by category and calculate statistics
+4. Pivot tables for multi-dimensional analysis
+5. Merge with another dataset (product details)
+6. Export results to Excel with multiple sheets
+7. Visualize top 10 products (bonus: matplotlib)
+
+================================================================================
+
+Exercise 22: Email Automation System
+Topics Covered: Sending Emails, File Reading, Templates
+
+Build an email campaign system:
+1. Read recipients from CSV (name, email, company)
+2. Load HTML template with placeholders
+3. Personalize each email using string formatting
+4. Send bulk emails with rate limiting (max 10/minute)
+5. Track sent emails in a log file
+6. Handle failures and retry
+7. Add attachments (PDF reports)
+
+================================================================================
+
+Exercise 23: Debugging with pdb
+Topics Covered: Python Debugger (pdb), Exception Handling
+
+Given buggy code (intentionally flawed):
+```python
+def process_data(data):
+    result = []
+    for item in data:
+        value = item['value']
+        result.append(value * 2)
+    return sum(result) / len(result)
+```
+Tasks:
+1. Use pdb to step through and find bugs
+2. Set breakpoints and conditional breakpoints
+3. Inspect variables at each step
+4. Fix: missing keys, division by zero, type mismatches
+5. Add logging instead of print statements
+
+================================================================================
+
+Exercise 24: Context Manager - Database Connection
+Topics Covered: Context Managers, Exception Handling, Decorators
+
+Create a database connection context manager:
+```python
+with DatabaseConnection('sqlite:///test.db') as db:
+    db.execute('SELECT * FROM users')
+```
+
+Features:
+- Auto-commit on success
+- Rollback on exception
+- Connection pooling
+- Query logging
+- Retry logic for transient failures
+- Support for both SQLite and PostgreSQL

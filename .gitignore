@@ -10,3 +10,4 @@ description.txt
 api-call-attempts.log
 task17data.txt
 __pycache__
+.pytest_cache
